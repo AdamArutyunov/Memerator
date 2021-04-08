@@ -102,9 +102,10 @@ class GAN:
     def train(self, epochs=1, batch_size=10):
         MySimpleNN = SimpleNN()
         try:
+            raise Exception()
             MySimpleNN.load_cached_dataset("datasets/cache/memes_data.pickle", "datasets/cache/memes_labels.pickle")
         except Exception as e:
-            MySimpleNN.load_images('datasets/memes', monochrome=True)
+            MySimpleNN.load_images('datasets/memes_b', monochrome=True)
             MySimpleNN.cache_dataset("datasets/cache/memes_data.pickle", "datasets/cache/memes_labels.pickle")
 
         x_train, y_train, x_test, y_test = MySimpleNN.train_test_split()
@@ -168,7 +169,7 @@ if __name__ == '__main__':
 
     MyGAN, MyDiscriminator, MyGenerator = create_gan()
 
-    MyGAN.train(10, 8)
+    MyGAN.train(100, 16)
 
     MyDiscriminator.model.save_weights('model/gan/discriminator/weights.h5')
     MyGenerator.model.save_weights('model/gan/generator/weights.h5')

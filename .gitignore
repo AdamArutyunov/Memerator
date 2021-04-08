@@ -12,6 +12,12 @@ Constants.py
 # IDEA
 .idea*
 
+# Datasets
+/datasets/*
+
+# Models
+/models/*
+
 # Images
 .jpg
 .png

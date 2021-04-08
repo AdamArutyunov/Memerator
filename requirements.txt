@@ -1,0 +1,10 @@
+opencv-python
+Flask
+matplotlib
+Keras
+tqdm
+numpy
+sklearn
+scikit-learn
+imutils
+pillow

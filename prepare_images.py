@@ -2,7 +2,7 @@ import os
 from PIL import Image, ImageFilter
 from imutils import paths
 
-input_images_path = "datasets/memes"
+input_images_path = "datasets/memes_b"
 
 
 def rename():
@@ -17,23 +17,23 @@ def rename():
 
 def multiply():
     for imagePath in list(paths.list_images(input_images_path)):
-        image = Image.open(imagePath)
-        image = image.resize((128, 128))
-        imagePath = imagePath.split(".")
-        image.save(imagePath[0] + "_resized." + imagePath[-1])
-
-
-    for imagePath in list(paths.list_images(input_images_path)):
-        image = Image.open(imagePath)
-        image = image.filter(ImageFilter.BLUR)
-        imagePath = imagePath.split(".")
-        image.save(imagePath[0] + "_blur." + imagePath[-1])
-
+        try:
+            image = Image.open(imagePath)
+            image = image.resize((128, 128))
+            imagePath = imagePath.split(".")
+            image.save(imagePath[0] + "_resized." + imagePath[-1])
+        except Exception as e:
+            pass
 
     for imagePath in list(paths.list_images(input_images_path)):
-        image = Image.open(imagePath)
-        image = image.rotate(90)
-        imagePath = imagePath.split(".")
-        image.save(imagePath[0] + "_rotated." + imagePath[-1])
+        try:
+            image = Image.open(imagePath)
+            image = image.filter(ImageFilter.BLUR)
+            image = image.filter(ImageFilter.BLUR)
+            imagePath = imagePath.split(".")
+            image.save(imagePath[0] + "_blur." + imagePath[-1])
+        except Exception as e:
+            pass
 
-rename()
+
+multiply()

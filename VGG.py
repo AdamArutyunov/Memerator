@@ -26,11 +26,11 @@ if __name__ == "__main__":
     Model = VGG()
 
     #Model.load_cached_dataset('datasets/cache/surfaces_data.pickle', 'datasets/cache/surfaces_labels.pickle')
-    Model.load_images('datasets/memes')
+    Model.load_images('datasets/memes_b')
     #Model.cache_dataset('datasets/cache/surfaces_data.pickle', 'datasets/cache/surfaces_labels.pickle')
     Model.train_test_split(0.25)
     print(len(Model.trainY))
     Model.create_model()
-    Model.fit(10, 0.01, 1)
+    Model.fit(10, 0.01, 16)
 
     Model.save_output('model/vgg/model', 'model/vgg/labels.pickle')
