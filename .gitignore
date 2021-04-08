@@ -9,6 +9,10 @@ __pycache__/
 # Config
 Constants.py
 
+# Images
+.jpg
+.png
+
 # Distribution / packaging
 .Python
 build/
