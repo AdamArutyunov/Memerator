@@ -3,6 +3,7 @@ from flask import Flask, abort, send_file
 from flask import request as rq
 from VGG import *
 from GAN import *
+from Constants import *
 
 app = Flask(__name__)
 
@@ -61,4 +62,4 @@ if __name__ == "__main__":
 
     print('GAN created.')
 
-    app.run('0.0.0.0', port=80)
+    app.run('0.0.0.0', port=API_PORT)
