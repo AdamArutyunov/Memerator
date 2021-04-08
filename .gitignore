@@ -10,7 +10,7 @@ __pycache__/
 Constants.py
 
 # IDEA
-.idea
+.idea*
 
 # Images
 .jpg
