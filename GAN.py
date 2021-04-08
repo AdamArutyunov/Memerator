@@ -108,7 +108,6 @@ class GAN:
             MySimpleNN.cache_dataset("datasets/cache/memes_data.pickle", "datasets/cache/memes_labels.pickle")
 
         x_train, y_train, x_test, y_test = MySimpleNN.train_test_split()
-        print(x_train.shape)
 
         x_train = (x_train.astype(np.float32) - 0.5) * 2
         batch_count = x_train.shape[0] // batch_size
@@ -119,7 +118,6 @@ class GAN:
                 noise = np.random.normal(0, 1, size=[batch_size, RANDOM_DIM])
                 image_batch = x_train[np.random.randint(0, x_train.shape[0], size=batch_size)]
 
-                print(2)
                 generated_images = self.generator.model.predict(noise)
 
                 X = np.concatenate([image_batch, generated_images])
@@ -165,12 +163,12 @@ def create_gan():
 
 
 if __name__ == '__main__':
-    #import os
-    #os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+    import os
+    os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
     MyGAN, MyDiscriminator, MyGenerator = create_gan()
 
-    MyGAN.train(1, 1)
+    MyGAN.train(10, 8)
 
     MyDiscriminator.model.save_weights('model/gan/discriminator/weights.h5')
     MyGenerator.model.save_weights('model/gan/generator/weights.h5')

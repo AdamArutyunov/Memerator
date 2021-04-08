@@ -1,9 +1,8 @@
 from telegram.ext import Updater, MessageHandler, Filters
 from telegram.ext import CallbackContext, CommandHandler
 from telegram import ReplyKeyboardMarkup
+from Constants import *
 
-
-TOKEN = ""
 reply_keyboard = [['/generate', '/recognize']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
 
@@ -29,7 +28,7 @@ def karelia(update, context):
 
     
 def main():
-    updater = Updater(TOKEN, use_context=True)
+    updater = Updater(TELEGRAM_TOKEN, use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("recognize", recognize))

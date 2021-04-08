@@ -9,6 +9,9 @@ __pycache__/
 # Config
 Constants.py
 
+# IDEA
+.idea
+
 # Images
 .jpg
 .png
