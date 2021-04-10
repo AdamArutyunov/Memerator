@@ -8,3 +8,4 @@ sklearn
 scikit-learn
 imutils
 pillow
+requests
